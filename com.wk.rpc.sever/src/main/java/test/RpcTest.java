@@ -6,6 +6,7 @@ import proxy.RpcImporter;
 import publish.RpcExporter;
 
 import java.net.InetSocketAddress;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * PackageName test
@@ -24,7 +25,7 @@ public class RpcTest {
 //        }).start();
         RpcImporter<EchoService> importer = new RpcImporter<EchoService>();
         EchoService echo = importer.importer(EchoServiceImpl.class,new InetSocketAddress("localhost",8088));
-
+        AtomicInteger atomicInteger = new AtomicInteger();
         System.out.println(echo.echo("are you ok? "));
     }
 }
