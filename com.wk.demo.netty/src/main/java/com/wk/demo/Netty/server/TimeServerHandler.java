@@ -5,6 +5,7 @@ import io.netty.buffer.Unpooled;
 import io.netty.buffer.UnpooledDirectByteBuf;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelPromise;
 
 import java.nio.ByteBuffer;
 import java.util.Date;
@@ -13,6 +14,12 @@ import java.util.Date;
  * Created by aloneboy on 2017/11/18.
  */
 public class TimeServerHandler  extends ChannelHandlerAdapter {
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("TCP connected!");
+        ctx.fireChannelActive();
+    }
+
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         //ByteBuffer req = (ByteBuffer)msg;
@@ -36,5 +43,11 @@ public class TimeServerHandler  extends ChannelHandlerAdapter {
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         ctx.close();
+    }
+
+    @Override
+    public void close(ChannelHandlerContext ctx, ChannelPromise promise) throws Exception {
+        System.out.println("TCP closing ..");
+        ctx.close(promise);
     }
 }
