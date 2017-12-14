@@ -7,7 +7,6 @@ import java.util.concurrent.Executors;
 
 /**
  * 任务数n 定长线程池m
- * PackageName com.bj58.spat.scf.server.test
  * Created by wangkang on 2017/12/12.
  */
 public class MultiThreadTaskHandler {
