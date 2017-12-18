@@ -1,4 +1,6 @@
-package tools;
+package common;
+
+import tools.CollectEntity;
 
 import java.lang.reflect.Field;
 import java.util.Date;
