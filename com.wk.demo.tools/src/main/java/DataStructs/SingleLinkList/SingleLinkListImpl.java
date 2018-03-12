@@ -5,7 +5,7 @@ import org.apache.poi.ss.formula.functions.T;
 /**
  * Created by aloneboy on 2017/12/17.
  */
-public class SingleLinkListImpl implements SingleLinkList<T> {
+public class SingleLinkListImpl<T> implements SingleLinkList<T> {
     private int length;
     private LinkNode head;
 
